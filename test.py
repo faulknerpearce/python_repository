@@ -1,3 +1,3 @@
 import util
 
-util.freadlines()
+util.f_readlines()
