@@ -12,3 +12,6 @@ def freadintlist(file_name: str) -> list:
 
 def lmap(fun, iterable):
     return list(map(fun, iterable))
+
+def split_string(s):
+    return [*s]
