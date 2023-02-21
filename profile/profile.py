@@ -7,7 +7,6 @@ while user_in != 2:
     print(profile)
     user_name = input("\nEnter your username: ")
     index = 0
-    
     #This loop checks for an existing account with the username  
     while index <= my_len:
       if user_name == profile[index][0]:
@@ -15,7 +14,6 @@ while user_in != 2:
         break
       else:
         index += 1
-    
     #Option to create an account 
     if new == True:
       print("\nWe could not find your account.")
@@ -30,19 +28,16 @@ while user_in != 2:
               tries += -1
               print("incorrect password, try again.\nTries remaining: " + str(tries))
               break
-              
           else:
               print("\n\nWelcome Back " + str(profile[index][2]))
               user_in = 2
               break #i can enter another loop here if i want to do something with the profile 
-        
     #Account creation. 
     if int(user_in) == 1:
       #print("\nYou made it to the checkpoint")
       i = 0
       user_name_tries = 3
       account_clash = False
-      
       #Check if the username is taken 
       while i < my_len and user_name_tries > 0:
         new_user = input("Create a username: ")
