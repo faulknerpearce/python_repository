@@ -2,8 +2,9 @@ profile = [["fireaustin", "7459", "Austin Faulkner-pearce", "25"], ["nicole", "g
 index = 0
 new = True
 user_name = input("Enter your username ")
+my_len = len(profile) -1
 
-while index < len(profile):
+while index < my_len:
     if user_name != profile[index][0]:
         index += 1
     
