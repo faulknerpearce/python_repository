@@ -31,7 +31,7 @@ while user_in != 2:
           else:
               print("\n\nWelcome Back " + str(profile[index][2]))
               user_in = 2
-              break #i can enter another loop here if i want to do something with the profile 
+              break  
     #Account creation. 
     if int(user_in) == 1:
       #print("\nYou made it to the checkpoint")
