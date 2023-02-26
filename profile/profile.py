@@ -1,10 +1,9 @@
-profile = [["mr orange", "7459", "James Bancroft"], ["bob_007", "6677", "Bob Morewell"]]
+profile = [["Mr-Orange", "7459", "James Bancroft"], ["Bob_007", "6677", "Bob Morewell"]]
 new = True
 user_in = 0
 
 while user_in != 2:
     my_len = len(profile) - 1
-    print(profile)
     user_name = input("\nEnter your username: ")
     index = 0
     #This loop checks for an existing account with the username  
