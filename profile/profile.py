@@ -14,7 +14,7 @@ while user_in != 2:
       else:
         index += 1
     #Option to create an account 
-    if new == True:
+    if new:
       print("\nWe could not find your account.")
       user_in = input("Press(1) to create an account. Press(2) to quit: ")
     else: 
@@ -24,7 +24,7 @@ while user_in != 2:
       while tries > 0: 
           password = input("Enter your password: ")
           if password != profile[index][1]:
-              tries += -1
+              tries -= 1
               print("incorrect password, try again.\nTries remaining: " + str(tries))
               break
           else:
@@ -46,7 +46,7 @@ while user_in != 2:
         else: 
           i += 1
       #append list if the username is available  
-      if account_clash == False:
+      if not account_clash:
         print("\nThis username is available! ")
         profile.append([new_user])
         password = input("Create a password: ")
