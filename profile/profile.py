@@ -1,4 +1,4 @@
-profile = [["Mr-Orange", "7459", "James Bancroft"], ["Bob_007", "6677", "Bob Morewell"]]
+profile = [["Mr-Orange", "7459", "James-Bancroft"], ["Bob_007", "6677", "Bob Morewell"]]
 new = True
 user_in = 0
 
