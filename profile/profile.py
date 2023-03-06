@@ -10,7 +10,7 @@ while user_in != 2:
     while index <= my_len:
       if user_name == profile[index][0]:
         new = False
-        break
+        break 
       else:
         index += 1
     #Option to create an account 
@@ -33,7 +33,6 @@ while user_in != 2:
               break  
     #Account creation. 
     if int(user_in) == 1:
-      #print("\nYou made it to the checkpoint")
       i = 0
       user_name_tries = 3
       account_clash = False
@@ -58,4 +57,4 @@ while user_in != 2:
     if int(user_in) == 2:
      print("\nProgram terminated.\n")
      break
-#Test
+
