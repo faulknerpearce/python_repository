@@ -1,7 +1,4 @@
-from utility import check_user
-from utility import make_account
-from utility import found_account
-from utility import password_check
+from utility import check_user, make_account, found_account, password_check
 #This is my main profile program
 profiles = [["2375", "Austin Faulkner-Pearce", 25], ["4458", "Nicole Leon", 24]]
 
