@@ -1,8 +1,8 @@
-##Account Login Program
+# An Account Login Program
 
 This Python script allows users to create an account and login to an existing account by entering their username and password
 
-#About
+## About
 
 The script will prompt the user to enter their username. If the username already exists in the profile list, the script prompts the user to enter their password. If the password matches the password associated with the username in the profile list, the script welcomes the user and exits the while loop. If the password does not match, the script prompts the user to try again or terminates the program if the user has no more tries.
 
