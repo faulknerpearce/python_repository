@@ -29,25 +29,24 @@ def check_bet_amount(bet, player):
 
 #this function will check if the player guessed the result of the dice roll. 
 #if their prediction was successful the player will win the amount they bet       
-def check_bet(bet_amount, bet, dice, player, func):
+def check_bet(bet_amount, bet, dice, player, message):
     diceval = int
-    msg = func
     if dice % 2 == 0:
-        diceval = 1
-    else:
         diceval = 2
+    else:
+        diceval = 1
     if int(bet) == diceval:
-        print(msg + " You win $" + str(bet_amount))
+        print(message + " You win $" + str(bet_amount))
         player[0][1] += int(bet_amount)
     else:
-        print(msg + " You lose $" + str(bet_amount))
+        print(message + " You lose $" + str(bet_amount))
         player[0][1] -= int(bet_amount)
 
 #This function will output the remaining balance of the players funds.  
-def remining(money):
+def remaining(money):
     print("You have $" + str(money[0][1]) + " available to bet with.\n\n")
 
-def print_even_or_odd(dice):
+def even_or_odd(dice):
     msg = ""
     if dice % 2 == 0:
         msg = "Even!"
