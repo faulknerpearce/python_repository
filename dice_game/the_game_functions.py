@@ -44,7 +44,7 @@ def check_bet(bet_amount, bet, dice, player, message):
 
 #This function will output the remaining balance of the players funds.  
 def remaining(money):
-    print("You have $" + str(money[0][1]) + " available to bet with.\n\n")
+    print("You have $" + str(money[0][1]) + " available.")
 
 def even_or_odd(dice):
     msg = ""
