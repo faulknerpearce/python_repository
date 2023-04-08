@@ -1,4 +1,4 @@
-# a simple gambeling game 
+# a simple gambling game 
 this program will ask the player for a username.
 it will then assign the player with some funds that they can use to make predictions on the result of a dice roll.
 
