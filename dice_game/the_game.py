@@ -1,9 +1,8 @@
 #The player list will hold the player name and the players coins
-from game_functions import create_player, roll_dice, check_bet_amount, remining, check_bet
+from game_functions import create_player, roll_dice, check_bet_amount, remining, check_bet, print_even_or_odd
 player = []
 choice = 1
 count = 0
-check = False
 
 create_player(player)
 
@@ -20,15 +19,16 @@ while int(choice) == 1 and player[0][1] > 0:
     else:
         count = 1
     if int(choice) == 1: 
-       prediction = input("\n\nPlease press(1) to bet on even. Press(2) to bet on odd: ")
+       prediction = input("\n\nPlease press(1) to bet on odd. Press(2) to bet on even: ") # fix odd or even 
        #i need to add a limit of tries here 
+       check = False
        while check == False:
            bet_amo = input("Please enter an amount you wish to bet: ")
            check = check_bet_amount(bet_amo, player)
     
        dice = roll_dice()
-    
-       check_bet(bet_amo, prediction, dice, player)
+       msg = print_even_or_odd()
+       check_bet(bet_amo, prediction, dice, player, msg)
 
 if int(choice) == 1 and player[0][1] <= 0:
     print("\n\nYou are out of money... you should consider seeing a specialest")
