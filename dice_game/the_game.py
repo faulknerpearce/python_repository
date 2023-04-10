@@ -1,4 +1,4 @@
-#The player list will hold the player name and the players coins
+#The player list will hold the player name and the players tokens
 from game_functions import create_player, roll_dice, check_bet_amount, remaining, check_bet, even_or_odd 
 player = []
 choice = 1
