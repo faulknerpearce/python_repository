@@ -1,14 +1,14 @@
 # Function to update the guess and bounds when the chosen number is below the current guess
 def below(guess, bound):
     num = (guess - bound[0]) / 2  
-    bound[1] = guess
+    bound[1] = guess - 1
     guess -= num
     return round(guess)
       
 # Function to update the guess and bounds when the chosen number is above the current guess
 def above(guess, bound): 
     num = (bound[1] - guess) / 2
-    bound[0] = guess 
+    bound[0] = guess + 1
     guess += num 
     return round(guess)
 
