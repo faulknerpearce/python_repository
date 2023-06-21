@@ -1,4 +1,4 @@
-# Binary Search Number Guessing Game
+# Binary Search: Number Guessing Game
 
 ## Description
 "Median" is a command-line script that implements a number-guessing game using a binary search-like strategy. The program attempts to guess a number chosen by the user within a range of 0 to 100. It narrows down the possibilities by calculating medians and adjusting the bounds based on the user's responses.
