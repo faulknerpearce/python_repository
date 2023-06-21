@@ -4,11 +4,11 @@
 "Median" is a command-line script that implements a number-guessing game using a binary search-like strategy. The program attempts to guess a number chosen by the user within a range of 0 to 100. It narrows down the possibilities by calculating medians and adjusting the bounds based on the user's responses.
 
 ## Features
-. Interactive guessing game experience.
-. Utilizes binary search principles to efficiently narrow down the range of possible numbers.
-. Provides prompts for the user to indicate whether the guessed number is below or above their chosen number.
-. Limits the number of guesses to a maximum of 11.
-. Provides a result at the end of the game, indicating whether the program successfully guessed the number or not.
+- Interactive guessing game experience.
+- Utilizes binary search principles to efficiently narrow down the range of possible numbers.
+- Provides prompts for the user to indicate whether the guessed number is below or above their chosen number.
+- Limits the number of guesses to a maximum of 11.
+- Provides a result at the end of the game, indicating whether the program successfully guessed the number or not.
 
 ## How to Use
 1. Run the "Median" script in a Python environment.
