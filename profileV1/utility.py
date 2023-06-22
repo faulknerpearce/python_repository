@@ -1,7 +1,7 @@
 # this is where i will write the functions for my profile program
 
-# The Check user function will return an int if if find the account and a bool if no account was found. 
-def check_user(password, list):
+# The check_user function will return an int if an account was located and a bool if no account was located. 
+def log_in(password, list):
     i = 0 
     while i < len(list):
         if password == list[i][0]:
@@ -15,6 +15,7 @@ def check_user(password, list):
         myvalue = True
         return myvalue
 
+# This function will check if the passowrd is original. 
 def password_check(list):
     index = 0  
     tries = 1
@@ -29,7 +30,7 @@ def password_check(list):
             available = 1 
             return available
             
-
+# This function is for account creation. 
 def make_account(list):
     username = input("Enter your full name: ")
     list[-1].insert(1, username)
@@ -37,5 +38,6 @@ def make_account(list):
     list[-1].insert(2, int(age))
     print(list)
 
-def found_account(num, list):
+# This function will accsess the located account. 
+def accsess_account(num, list):
     print("Welcome back " + list[num][1])
