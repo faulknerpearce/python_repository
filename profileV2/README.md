@@ -1,6 +1,6 @@
-# User Authentication Script
+# User Authentication Script: Username and Passowrd. 
 
-This script provides a simpl user authentication system with features such as locating existing accounts, verifying passwords, creating new accounts, and checking username availability.
+This script provides a simpl user authentication system with features such as locating existing accounts, verifying usernames and passwords, creating new accounts, and checking username availability.
 
 ## Features
 - Username and password checking: The script locates the entered username and verifies the corresponding password.
