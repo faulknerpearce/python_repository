@@ -12,27 +12,27 @@ This script provides a simpl user authentication system with features such as lo
 ## Functions 
 
 ### username_check()
--Locates the entered userName in the user_list.
--Prompts for the corresponding password.
--Calls the password_check function.
--Returns the username (theUser) and the option (option).
--Offers an option to create a new account if the username is not found.
+- Locates the entered userName in the user_list.
+- Prompts for the corresponding password.
+- Calls the password_check function.
+- Returns the username (theUser) and the option (option).
+- Offers an option to create a new account if the username is not found.
 
 ### password_check()
--Verifies the entered userPassWord against the password in the user_list.
--Allows a limited number of password tries (tries).
--Prompts the user for input.
--Returns the username (theName) and the option (option) upon successful password verification.
+- Verifies the entered userPassWord against the password in the user_list.
+- Allows a limited number of password tries (tries).
+- Prompts the user for input.
+- Returns the username (theName) and the option (option) upon successful password verification.
 
 ### create_account()
--Facilitates the creation of a new account.
--Checks if the userName is available using the available function.
--Prompts the user to create a password.
--Adds the username and password to the user_list.
--Returns an option for further processing.
--Provides an option to try again if the username is already taken.
+- Facilitates the creation of a new account.
+- Checks if the userName is available using the available function.
+- Prompts the user to create a password.
+- Adds the username and password to the user_list.
+- Returns an option for further processing.
+- Provides an option to try again if the username is already taken.
 
 ### available()
--Checks if a given name already exists in the user_list.
--Iterates through the list to find a match.
--Returns True if the name is taken, False if it's available, and None if no match is found.
+- Checks if a given name already exists in the user_list.
+- Iterates through the list to find a match.
+- Returns True if the name is taken, False if it's available, and None if no match is found.
