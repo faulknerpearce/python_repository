@@ -1,4 +1,4 @@
-# User Authentication Script: Username and Passowrd. 
+# User Authentication Script: Username and Password. 
 
 This script provides a simpl user authentication system with features such as locating existing accounts, verifying usernames and passwords, creating new accounts, and checking username availability.
 
