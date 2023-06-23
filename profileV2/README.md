@@ -35,4 +35,4 @@ This script provides a simpl user authentication system with features such as lo
 ### available()
 - Checks if a given name already exists in the user_list.
 - Iterates through the list to find a match.
-- Returns True if the name is taken, False if it's available, and None if no match is found.
+- Returns True if the name is taken, False if no match is found.
