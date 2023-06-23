@@ -1,4 +1,4 @@
-# An Account script
+# User Authentication Script: Password Only. 
 This is a Python program that allows users to create/log into a profile. 
 The program provides a command-line interface that prompts the user to enter their password and then checks if the password matches any existing profiles.
 If a match is found, the program displays information about the user's account, including their ID number, name, and age. 
