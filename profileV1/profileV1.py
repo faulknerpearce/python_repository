@@ -1,6 +1,6 @@
 from utility import log_in, make_account, accsess_account, password_check
 #This is my main profile program
-profiles = [["2375", "Austin Faulkner-Pearce", 25], ["4458", "Nicole Leon", 24]]
+profiles = [["2375", "Bob Anderson", 25], ["4458", "Alice Whales", 24]]
 
 user_in = input("Enter your password: ")
 
