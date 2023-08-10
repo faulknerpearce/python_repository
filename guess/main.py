@@ -48,7 +48,7 @@ while tries < 11:
         elif pinpoint == 2:
             guess = above(guess, bounds)
 
-    # Increment the number of tries
+    # Increment the number of tries.
     tries += 1 
 
 # Check if the number was guessed correctly and display the appropriate message
