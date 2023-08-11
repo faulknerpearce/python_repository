@@ -17,7 +17,6 @@ def remaining_time(lockout_timestamp):
     remaining_time = lockout_timestamp - current_timestamp 
     return f"You have {remaining_time} seconds remaining "
     
-
 # Function to check if the current time has surpassed the user's lockout timestamp.
 def check_timestamp(user_timestamp):
     current_timestamp = get_current_timestamp()
@@ -26,7 +25,6 @@ def check_timestamp(user_timestamp):
     if current_timestamp > user_timestamp:
         print("You can attempt another login")
     else:
-    
         print(remaining_time(user_timestamp))
 
 # Generate the user's lockout timestamp.
