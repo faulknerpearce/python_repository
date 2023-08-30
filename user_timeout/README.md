@@ -31,7 +31,7 @@
 #### check_username() 
 - Finds ID for username if exists
 
-### check_password()
+#### check_password()
  - Validates password, handles failures
 Lockout
 
