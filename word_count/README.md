@@ -11,14 +11,14 @@ This script processes a sentence entered by the user to:
 
 ## Key Functions
 
-### `split_sentence(sentence)`
+ `split_sentence()`
 - Splits an input sentence into a list of words.
 - Parameters:
   - `sentence` (str): The input sentence to be split.
 - Returns:
   - `list`: A list of individual words from the input sentence.
 
-### `update_words(word, used_words)`
+ `update_words()`
 - Increments word counts in a dictionary.
 - If the word already exists in the dictionary, it increments the count.
 - If the word is not in the dictionary, it adds it with a count of 1.
