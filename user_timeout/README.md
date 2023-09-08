@@ -18,25 +18,24 @@
 - profiles: Dictionary holding user data Keys are numeric IDs
 - Values are dictionaries with username, password, etc 
 
-### Account Creation
+### Functions
 
-#### username_availability() 
+`username_availability()`  
 - Checks if username taken
 
-#### create_account() 
+ `create_account()` 
 - Gets user input and adds to profiles
 
-### Login
 
-#### check_username() 
+`check_username()` 
 - Finds ID for username if exists
 
-#### check_password()
+`check_password()`
  - Validates password, handles failures
 Lockout
 
-#### lockout_timestamp() 
+`lockout_timestamp()`  
 - Sets timeout 1 minute from now
 
-#### check_timestamp() 
+`check_timestamp()` 
 - Checks if elapsed and lockout expired
