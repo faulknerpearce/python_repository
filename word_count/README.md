@@ -13,6 +13,7 @@ This script processes a sentence entered by the user to:
 
  `split_sentence()`
 - Splits an input sentence into a list of words.
+- removes common punctuation marks such as commas and periods.
 
  `update_words()`
 - Increments word counts in a dictionary.
