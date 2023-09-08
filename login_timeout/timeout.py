@@ -1,7 +1,7 @@
 
 from datetime import datetime 
 
-# Function to fetch the current hour and minute.
+# Function to fetch the current unix timestamp.
 def get_current_timestamp():
     current_timestamp = datetime.now().timestamp()  
     return current_timestamp
