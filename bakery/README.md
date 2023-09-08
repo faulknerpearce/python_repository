@@ -1,35 +1,40 @@
-# Bakery Inventory 
-This program models a bakery's inventory and implements functionality to:
+# Bakery Inventory Management
 
-- Lookup stock levels and pricing for baked goods
-- Calculate the total value of a baked good currently in stock
-- Simulate selling a quantity of a baked good
-- Reduces the item's stock level
-- Increases the item's price based on remaining value
-- This provides basic business analytics for managing inventory.
+## Overview
+
+The Bakery Inventory Management, This program facilitates key functionalities including stock lookup, total value calculation, and simulated sales for accurate business analytics.
+
+## Features
+
+- Quickly retrieve stock levels and pricing for various baked goods.
+- Calculate the total value of specific items currently in stock.
+- Implement a simulation for selling a specified quantity of a baked good.
+- Automatically adjust prices based on remaining value and stock levels.
 
 ## Code Overview
-The bakery dictionary contains the inventory with keys for item names and nested price/stock dictionaries.
 
-### Functions 
+The central data structure, `bakery_inventory`, contains the inventory with keys for item names and nested dictionaries for price and stock levels.
 
-`total_value()`
-- Accepts the inventory and an item name
-- Checks if the item exists in the inventory
-- Calculates the total value by multiplying price * stock
-- Returns the total value
+### Functions
 
-`buy_item()`
-- Accepts the inventory, item name, and amount to purchase
-- Calls total_value() to get the prior value
-- Reduces the item's stock by the amount
-- Calculates a new price based on prior value divided by remaining stock
-- Returns a confirmation with new price
-- This allows simulating buying items and maintaining consistent total value.
+`total_value(inventory, item)`
 
+- Accepts the bakery inventory and the name of the item.
+- Checks if the item is present in the inventory.
+- Calculates the total value as the product of price and stock.
+- Returns the total value.
+
+`buy_item(inventory, item, amount)`
+
+- Accepts the bakery inventory, item name, and quantity to purchase.
+- Utilizes `total_value()` to obtain the prior value.
+- Decreases the item's stock by the specified amount.
+- Computes a new price using the prior value divided by the remaining stock.
+- Returns a confirmation message with the updated price.
 
 ## Usage
 
-1. Define your bakery inventory, including items, prices, and initial stock.
-2. Use the `total_value` function to calculate the total value of remaining stock for a specific item.
-3. Use the `buy_item` function to adjust item prices based on changes in stock.
+1. Define your bakery inventory, specifying items along with their respective prices and initial stock levels.
+2. Utilize the `total_value` function to ascertain the total value of remaining stock for a specific item.
+3. Employ the `buy_item` function to adjust item prices based on changes in stock.
+
