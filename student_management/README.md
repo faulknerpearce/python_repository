@@ -11,7 +11,7 @@ This Python script provides a simple student management system for tracking stud
 - Mark attendance for specific classes on specific days.
 - Calculate the total score of a student's grades.
 
-## Functions and Classes
+## Classes
 
 ### `Student` Class
 
@@ -25,6 +25,8 @@ This Python script provides a simple student management system for tracking stud
 
 - Constructor: Initializes the grade's score and the minimum passing score.
 - `is_passing(student_grade)`: Checks if the student's grade is above or below the minimum passing score and prints the result.
+
+## Functions
 
 ### `get_day()` Function
 
