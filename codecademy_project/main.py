@@ -17,17 +17,16 @@ class Character:
             return f"This is a level {self.level} {self.name}."
     
     # This is a methond for the characters light attack. (Higher chance of succsessful hit.) 
-    def attack(self, opponent, the_style):
-            if the_style == 1:
+    def attack(self, opponent, attack_style):
+            if attack_style:
+                # Light attack damage. 
                 damage = self.weapon.light_damage
                 opponent.health -= damage
             else:
+                # Heavy attack damage.
                 damage = self.weapon.heavy_damage
+                opponent.health -= damage
                 
-    # This is a method for the characters heavy attack. (Lesser chance of a succsessful hit.) 
-    def heavy_attack(self, opponent):
-        damage = self.weapon.heavy_damage
-    
     def defend_block(self, opponent, attack_style):
        
        attack_rate = {"light": 0.3, "heavy": 0.2}
@@ -73,7 +72,7 @@ def player_combat_attack(player, opponent):
         if int(tactic) == 1:
             # opponents chance of succsessful block.
             if opponent.defend_block(player, "light"):
-                player.attack(opponent, 1)
+                player.attack(opponent, True)
                 print(f"Your Light Attack was sucsessful. You delt {player.weapon.light_damage} points of damage to the {opponent.name}")
             
             else:
