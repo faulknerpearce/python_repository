@@ -1,8 +1,8 @@
 import random
 
-# The Class for creating the player and the enemies.
+# The Class for creating the player and opponents.
 class Character:
-    # Create attributes for the player 
+    # Create attributes for the character. 
     def __init__(self, name, health, weapon, race, level):
         self.name = name 
         self.health = health
@@ -10,13 +10,14 @@ class Character:
         self.race = race
         self.level = level
     
+    # This will print information about the Player if they are a human, otherwise it will print the information about the Enemy NPC.
     def __repr__(self):
         if self.race == "Human":
             return f"This characters name is {self.name}, thier level is {self.level} and their current health points are {self.health}."
         else:
             return f"This is a level {self.level} {self.name}."
     
-    # This is a methond for the characters light attack. (Higher chance of succsessful hit.) 
+    # This is a the characters methond for attacking.
     def attack(self, opponent, attack_style):
             if attack_style:
                 # Light attack damage. 
@@ -26,30 +27,31 @@ class Character:
                 # Heavy attack damage.
                 damage = self.weapon.heavy_damage
                 opponent.health -= damage
-                
-    def defend_block(self, opponent, attack_style):
-       
-       attack_rate = {"light": 0.3, "heavy": 0.2}
-
-       adjusted_rate = attack_rate.get(attack_style, 0.5)
     
-       # Calculate the success rate for defense based on skill level difference.
+    # This method is for the characters defence.          
+    def defend_block(self, opponent, attack_key):
+        
+       attack_rate = {"light": 0.3, "heavy": 0.2}
+       # adjusted attack rate for light and heavy attack.
+       adjusted_rate = attack_rate.get(attack_key, 0.5)
+    
+       # Calculate the success rate for defense based on skill level difference and attack style.
        success_rate = min(1.0, max(0.0, 0.5 + (self.level - opponent.level) * 0.1 + adjusted_rate))
        # This generates a boolean value based on whether a random number is less than the given success rate.
        defence = random.random() < success_rate
-       
        return defence
-
+    
     def defend_parry():
-        pass 
-
+        pass
+    
 # This is a class for creating weapons.  
 class Weapon:
     # Sword attributes. 
     def __init__(self, light_damage, heavy_damage):
         self.light_damage = light_damage
         self.heavy_damage = heavy_damage
-
+    
+    # create a method for parrying against an attack.  
     def parry(self):
         pass
       
@@ -74,19 +76,14 @@ def player_combat_attack(player, opponent):
             if opponent.defend_block(player, "light"):
                 player.attack(opponent, True)
                 print(f"Your Light Attack was sucsessful. You delt {player.weapon.light_damage} points of damage to the {opponent.name}")
-            
             else:
-                print(f"The {opponent.name} blocked your Light Attack.")
-
-
+                print(f"The {opponent.name} blocked your Light Attack.")  
         else: 
             pass
             # defending logic
 
 def player_combat_defend():
     pass
-
-    
 
 # This function should check the level of the player after combat. 
 def arena(the_player, the_enemy):
@@ -100,9 +97,6 @@ def arena(the_player, the_enemy):
 
         #player_combat_defend(the_player, the_enemy)
     
-
-
-
 player = create_player()
 
 goblin = create_goblin()
