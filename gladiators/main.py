@@ -1,5 +1,12 @@
 import random
 
+# This is a class for creating weapons.  
+class Weapon:
+    # Sword attributes. 
+    def __init__(self, light_damage, heavy_damage):
+        self.light_damage = light_damage
+        self.heavy_damage = heavy_damage
+
 # The Class for creating the player and opponents.
 class Character:
     # Create attributes for the character. 
@@ -18,8 +25,8 @@ class Character:
             return f"This is a level {self.level} {self.name}."
     
     # This is a the characters methond for attacking.
-    def attack(self, opponent, attack_style):
-        if attack_style == "Light":
+    def attack(self, opponent, passed_attack_style):
+        if passed_attack_style == "Light":
         # Light attack damage. 
             damage = self.weapon.light_damage
             opponent.health -= damage
@@ -40,18 +47,11 @@ class Character:
         print(f"seccsess rate: {success_rate}")
         
         # If the random flaot is greater than the success rate this will return True.
-        defence = round(random.random(),1) > success_rate
+        defence = round(random.random(),1) >= success_rate
         return defence
     
     def defend_parry():
         pass
-    
-# This is a class for creating weapons.  
-class Weapon:
-    # Sword attributes. 
-    def __init__(self, light_damage, heavy_damage):
-        self.light_damage = light_damage
-        self.heavy_damage = heavy_damage
     
 # This fucntion creates an instance of the character and sword. 
 def create_player():
@@ -71,15 +71,15 @@ def convert_int_to_word(player_choice):
     attacks = {1: "Light", 2: "Heavy"}
     return attacks.get(int(player_choice), 3)
 
-def attacking_turn(player, opponent, tactic):
+def attacking_turn(player, opponent, attack_style):
     # If the opponents block is False, then reduce opponents health by the calculated damage of the attack (Light or Heavy). 
-    if not opponent.block(player, tactic):
-        damage_points = player.attack(opponent, tactic)
-        print(f"Your {tactic} Attack was succsessful, you delt {damage_points} points of damage.\nOpponent remaining health points: {opponent.health}")
+    if not opponent.block(player, attack_style):
+        damage_points = player.attack(opponent, attack_style)
+        print(f"Your {attack_style} Attack was succsessful, you delt {damage_points} points of damage.\nOpponent remaining health points: {opponent.health}")
     
     # Otherwise no damage is dealt to the opponents and the players attacking turn is over. 
     else:
-        print(f"The {opponent.name} blocked your {tactic} Attack.")
+        print(f"The {opponent.name} blocked your {attack_style} Attack.")
 
 def defending_turn():
     pass
@@ -96,7 +96,7 @@ while player.health > 0 and goblin.health > 0:
 
     # Add attack probability to this statement. 
     choice = input(f"Press 1 for a Light Attack, Press 2 for a Heavy Attack. ")
-    attack = convert_int_to_word(int(choice))
-    print(f"The attack word: {attack}")
+    player_attack_style = convert_int_to_word(int(choice))
+    print(f"The attack word: {player_attack_style}")
 
-    attacking_turn(player, goblin, attack)
+    attacking_turn(player, goblin, player_attack_style)
