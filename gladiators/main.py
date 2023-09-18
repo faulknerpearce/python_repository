@@ -1,6 +1,6 @@
 import random
 
-# This is a class for creating weapons.  
+# Class for creating weapons.  
 class Weapon:
     # Sword attributes. 
     def __init__(self, light_damage, heavy_damage):
@@ -13,7 +13,7 @@ class Weapon:
             enemy.health -= damage_to_enemy
             return damage_to_enemy
 
-# The Class for creating the player and opponents.
+# Class for creating the player and opponents.
 class Character:
     # Create attributes for the character. 
     def __init__(self, name, health, weapon, race, level):
