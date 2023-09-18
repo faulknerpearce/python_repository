@@ -62,6 +62,20 @@ def create_goblin():
     created_goblin = Character("Goblin", 50, sword, "Goblin", 1)
     return created_goblin
 
+# This function is called if block is False and will output different statements for the player or the opponent. 
+def output_if_not_block(the_attacker, the_opponent, the_tactic, the_damage):
+    if the_attacker.race == "Human":
+        print(f"\nYour {the_tactic} Attack was succsessful, you have reduced the {the_opponent.name}'s Health by {the_damage} points.") 
+    else:
+        print(f"\nYour block was unsuccessful. The {the_attacker.name} reduced your Health by {the_damage} points.")
+
+# This function is called if block is True and will output different statements for the player or the opponent.
+def output_if_block(the_attacker, the_opponent, the_tactic):
+    if the_attacker.race == "Human":
+        print(f"\nThe {the_opponent.name} blocked your {the_tactic} Attack.")
+    elif the_opponent.race == "Human":
+        print(f"\nYou succsessfully blocked the {the_attacker.name}'s {the_tactic}.")
+
 # This fucntion will use a int as a key for a dictionary and retrun the associated word. 
 def convert_int_to_word(player_choice):
     attacks = {1: "Light", 2: "Heavy", 3: "Block", 4: "Parry"}
@@ -71,11 +85,11 @@ def character_combat(attacker, opponent, attack_tactic):
     # If the opponents block is False, then reduce opponents health by the calculated damage of the attack (Light or Heavy). 
     if not opponent.block(attacker, attack_tactic):
         damage_points = attacker.attack(opponent, attack_tactic)
-        print(f"\nYour {attack_tactic} Attack was succsessful, and delt {damage_points} points of damage to the {opponent.name}.")
+        output_if_not_block(attacker, opponent, attack_tactic, damage_points)
     
-    # Otherwise no damage is dealt to the opponent and the players attacking turn is over. 
+    # Otherwise no damage is dealt to the opponent and the attackers turn is over. 
     else:
-        print(f"\nThe {opponent.name} blocked your {attack_tactic} Attack.")
+       output_if_block(attacker, opponent, attack_tactic)
 
 # This function will return the result of the players defence choice, block or parry 
 def parry(defender, enemy, defender_tactic):
@@ -87,7 +101,6 @@ def parry(defender, enemy, defender_tactic):
         damage_to_player = random.randint(enemy.weapon.light_damage, enemy.weapon.heavy_damage)
         defender.health -= damage_to_player
         print(f"\nYour {defender_tactic} was unsuccessful and the {enemy.race} reduced your health by {damage_to_player} points.")
-
 
 # This fucntion will return the NPC's randomly selected attack choice, in the form of a string "Light" or "Heavy" attack.
 def enemy_random_attack():
@@ -113,7 +126,7 @@ while player.health > 0 and goblin.health > 0:
     choice = input("\nPress 1 to perform a Light Attack or Press 2 to perform a Heavy Attack: ")
     
     # Ensure that the input is only either the number 1 or 2. 
-    while choice != "1" and int(choice)!= 2:
+    while choice != "1" and choice != "2":
         print("\nIncorrect input for your attack, Try again.")
         choice = input("Press 1 to perform a Light Attack or 2 to perform a Heavy Attack: ")
     
@@ -125,7 +138,7 @@ while player.health > 0 and goblin.health > 0:
     choice = input("\nPress 3 to block, Press 4 to parry: ")
     
     # Ensure that the input is only either the number 3 or 4. 
-    while int(choice) != 3 and int(choice) != 4:
+    while choice != "3" and choice != "4":
         print("\nIncorect input for your defence, try again.")
         choice = input("Press 3 to block, Press 4 to parry: ")
     
@@ -141,7 +154,10 @@ while player.health > 0 and goblin.health > 0:
     else:
         parry(player, goblin, player_defence_tactic)
 
-if player.health <= 0:
-    print("You are dead.... GAME OVER.")
+    print(f"\nYou have {player.health} health points remaining,")
+    print(f"and the {goblin.name} has {goblin.health} health points remaining.")
 
-print(f"You won! your remaining health is {player.health}")
+if player.health <= 0:
+    print("\nGame Over! You were defeated by the Goblin.")
+else:
+    print("\nCongratulations! You defeated the Goblin.")
