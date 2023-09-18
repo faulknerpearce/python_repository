@@ -6,6 +6,12 @@ class Weapon:
     def __init__(self, light_damage, heavy_damage):
         self.light_damage = light_damage
         self.heavy_damage = heavy_damage
+    
+    # This method is used to parry an attack.
+    def parry(self, enemy):
+            damage_to_enemy = random.randint(self.light_damage, self.heavy_damage)
+            enemy.health -= damage_to_enemy
+            return damage_to_enemy
 
 # The Class for creating the player and opponents.
 class Character:
@@ -65,7 +71,7 @@ def create_goblin():
 # This function is called if block is False and will output different statements for the player or the opponent. 
 def output_if_not_block(the_attacker, the_opponent, the_tactic, the_damage):
     if the_attacker.race == "Human":
-        print(f"\nYour {the_tactic} Attack was succsessful, you have reduced the {the_opponent.name}'s Health by {the_damage} points.") 
+        print(f"\nYour {the_tactic} Attack was successful, you have reduced the {the_opponent.name}'s Health by {the_damage} points.") 
     else:
         print(f"\nYour block was unsuccessful. The {the_attacker.name} reduced your Health by {the_damage} points.")
 
@@ -74,7 +80,7 @@ def output_if_block(the_attacker, the_opponent, the_tactic):
     if the_attacker.race == "Human":
         print(f"\nThe {the_opponent.name} blocked your {the_tactic} Attack.")
     elif the_opponent.race == "Human":
-        print(f"\nYou succsessfully blocked the {the_attacker.name}'s {the_tactic}.")
+        print(f"\nYou successfully blocked the {the_attacker.name}'s {the_tactic}.")
 
 # This fucntion will use a int as a key for a dictionary and retrun the associated word. 
 def convert_int_to_word(player_choice):
@@ -91,16 +97,14 @@ def character_combat(attacker, opponent, attack_tactic):
     else:
        output_if_block(attacker, opponent, attack_tactic)
 
-# This function will return the result of the players defence choice, block or parry 
-def parry(defender, enemy, defender_tactic):
-    if not enemy.block(defender, defender_tactic):
-        damage_to_enemy = random.randint(defender.weapon.light_damage, defender.weapon.heavy_damage)
-        enemy.health -= damage_to_enemy
-        print(f"\nYour {defender_tactic} was succsessful, and you delt {damage_to_enemy} points of damage to the {enemy.name}")
+def player_parry(opponent, defender, defender_tactic):
+    if not opponent.block(defender, defender_tactic):
+        damage_to_enemy = defender.weapon.parry(opponent)
+        print(f"\nYour {defender_tactic} was successful, and you delt {damage_to_enemy} points of damage to the {opponent.name}")
     else:
-        damage_to_player = random.randint(enemy.weapon.light_damage, enemy.weapon.heavy_damage)
+        damage_to_player = opponent.weapon.parry(defender) 
         defender.health -= damage_to_player
-        print(f"\nYour {defender_tactic} was unsuccessful and the {enemy.race} reduced your health by {damage_to_player} points.")
+        print(f"\nYour {defender_tactic} was unsuccessful and the {opponent.race} reduced your health by {damage_to_player} points.")
 
 # This fucntion will return the NPC's randomly selected attack choice, in the form of a string "Light" or "Heavy" attack.
 def enemy_random_attack():
@@ -126,7 +130,7 @@ while player.health > 0 and goblin.health > 0:
     choice = input("\nPress 1 to perform a Light Attack or Press 2 to perform a Heavy Attack: ")
     
     # Ensure that the input is only either the number 1 or 2. 
-    while choice != "1" and choice != "2":
+    while choice != "1" and int(choice)!= 2:
         print("\nIncorrect input for your attack, Try again.")
         choice = input("Press 1 to perform a Light Attack or 2 to perform a Heavy Attack: ")
     
@@ -138,7 +142,7 @@ while player.health > 0 and goblin.health > 0:
     choice = input("\nPress 3 to block, Press 4 to parry: ")
     
     # Ensure that the input is only either the number 3 or 4. 
-    while choice != "3" and choice != "4":
+    while int(choice) != 3 and int(choice) != 4:
         print("\nIncorect input for your defence, try again.")
         choice = input("Press 3 to block, Press 4 to parry: ")
     
@@ -152,7 +156,7 @@ while player.health > 0 and goblin.health > 0:
         character_combat(goblin, player, enemy_attacking_tactic)
         
     else:
-        parry(player, goblin, player_defence_tactic)
+        player_parry(goblin, player, player_defence_tactic)
 
     print(f"\nYou have {player.health} health points remaining,")
     print(f"and the {goblin.name} has {goblin.health} health points remaining.")
