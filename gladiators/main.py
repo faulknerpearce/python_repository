@@ -97,7 +97,7 @@ def character_combat(attacker, opponent, attack_tactic):
     else:
        output_if_block(attacker, opponent, attack_tactic)
 
-def player_parry(opponent, defender, defender_tactic):
+def parry(opponent, defender, defender_tactic):
     if not opponent.block(defender, defender_tactic):
         damage_to_enemy = defender.parry(opponent)
         print(f"\nYour {defender_tactic} was successful, and you delt {damage_to_enemy} points of damage to the {opponent.name}")
@@ -156,7 +156,7 @@ while player.health > 0 and goblin.health > 0:
         character_combat(goblin, player, enemy_attacking_tactic)
         
     else:
-        player_parry(goblin, player, player_defence_tactic)
+        parry(goblin, player, player_defence_tactic)
 
     print(f"\nYou have {player.health} health points remaining,")
     print(f"and the {goblin.name} has {goblin.health} health points remaining.")
