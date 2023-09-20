@@ -8,12 +8,11 @@ class Weapon:
         self.xp = xp 
         self.light_damage = _light_damage * self.level
         self.heavy_damage = _heavy_damage * self.level
-        self.magic_damage = None
-        self.magic_damage_type = None
-    
+
     # This method is used to increase the level on the weapon. 
     def level_up(self):
       self.level += 1
+      print(f"Your sword has increased to: level {self.level}.")
     
     # This method will increase the weapon level if the current experience is greater than the required experience. 
     def check_xp(self):
@@ -21,13 +20,10 @@ class Weapon:
         if self.xp > required_xp:
             self.xp -= required_xp
             self.level_up()
-    
-    # This method can add a magic ability to the weapon. 
-    def add_magic_damage(self, _magic_damage, _magic_damage_type):
-        self.magic_damage = _magic_damage
-        self.magic_damage_type = _magic_damage_type
 
-    
+    def add_xp(self, _xp):
+        self.xp += _xp
+
 # Class for creating the player and opponents.
 class Character:
     # Create attributes for the character. 
@@ -101,7 +97,7 @@ def output_if_block(_attacker, _opponent, _tactic):
     if _attacker.race == "Human":
         print(f"\nThe {_opponent.name} blocked your {_tactic} Attack.")
     elif _opponent.race == "Human":
-        print(f"\nYou successfully blocked the {_attacker.name}'s {_tactic}.")
+        print(f"\nYou successfully blocked the {_attacker.name}'s {_tactic} Attack.")
 
 # This fucntion will use a int as a key for a dictionary and retrun the associated word. 
 def convert_int_to_word(player_choice):
@@ -112,6 +108,7 @@ def character_combat(_attacker, _opponent, _attack_tactic):
     # If the opponents block is False, then reduce opponents health by the calculated damage of the attack (Light or Heavy). 
     if not _opponent.block(_attacker, _attack_tactic):
         damage_points = _attacker.attack(_opponent, _attack_tactic)
+        player.weapon.add_xp(damage_points /2)
         output_if_not_block(_attacker, _opponent, _attack_tactic, damage_points)
     
     # Otherwise no damage is dealt to the opponent and the attackers turn is over. 
@@ -122,6 +119,8 @@ def character_combat(_attacker, _opponent, _attack_tactic):
 def parry(_defender, _opponent, defender_tactic):
     if not _opponent.block(_defender, defender_tactic):
         damage_to_enemy = _defender.parry(_opponent)
+        # Add weapon xp for successful hit 
+        player.weapon.add_xp(damage_to_enemy /2)
         print(f"\nYour {defender_tactic} was succsessful, and you delt {damage_to_enemy} points of damage to the {_opponent.name}")
     else:
         damage_to_player = _opponent.parry(_defender)
@@ -147,45 +146,55 @@ print(f"\nWelcome to the Arena\nYou are facing a level {goblin.level} {goblin.ra
 
 while player.health > 0 and goblin.health > 0:
 
-    # Add attack probability to this statement. 
-    choice = input(f"\nIt is your turn to attack the {goblin.name}\nPress 1 to perform a Light Attack or Press 2 to perform a Heavy Attack: ")
-    
-    # Ensure that the input is only either the number 1 or 2. 
-    while choice != "1" and choice!= "2":
-        print("\nIncorrect input for your attack, Try again.")
-        choice = input("Press 1 to perform a Light Attack or 2 to perform a Heavy Attack: ")
-    
-    player_attack_tactic = convert_int_to_word(int(choice))
-    
-    # Player's attacking turn. 
-    character_combat(player, goblin, player_attack_tactic)
+    if player.health > 0 and goblin.health > 0:
 
-    choice = input(f"\nThe {goblin.name} is about to attack you! \nPress 3 to attempt to block the attack, Press 4 to attempt a parry: ")
+        # Players attacking choice. 
+        choice = input(f"\nIt is your turn to attack the {goblin.name}\nPress 1 to perform a Light Attack or Press 2 to perform a Heavy Attack: ")
     
-    # Ensure that the input is only either the number 3 or 4. 
-    while choice != "3" and choice != "4":
-        print("\nIncorect input for your defence, try again.")
-        choice = input("Press 3 to block, Press 4 to parry: ")
+        # Ensure that the input is only either the number 1 or 2. 
+        while choice != "1" and choice!= "2":
+            print("\nIncorrect input for your attack, Try again.")
+            choice = input("Press 1 to perform a Light Attack or 2 to perform a Heavy Attack: ")
     
-    # Get the NPC's randomly selected attack. 
-    enemy_attacking_tactic = enemy_random_attack()
-
-    player_defence_tactic = convert_int_to_word(int(choice))
+        player_attack_tactic = convert_int_to_word(int(choice))
     
-    # Player's defending turn. 
-    if player_defence_tactic == "Block":
-        character_combat(goblin, player, enemy_attacking_tactic)
-        
+        # Player's attacking trun.   
+        character_combat(player, goblin, player_attack_tactic)
     else:
-        parry(player, goblin, player_defence_tactic)
+        break
 
-    print(f"\nYou have {player.health} health points remaining,")
-    print(f"and the {goblin.name} has {goblin.health} health points remaining.")
+    if player.health > 0 and goblin.health > 0:
 
+        choice = input(f"\nThe {goblin.name} is about to attack you! \nPress 3 to attempt to block the attack, Press 4 to attempt a parry: ")
+    
+        # Ensure that the input is only either the number 3 or 4. 
+
+        while choice != "3" and choice != "4":
+            print("\nIncorect input for your defence, try again.")
+            choice = input("Press 3 to block, Press 4 to parry: ")
+ 
+        # Get the NPC's randomly selected attack. 
+        enemy_attacking_tactic = enemy_random_attack()
+
+        player_defence_tactic = convert_int_to_word(int(choice))
+    
+        # Player's defending turn. 
+        if player_defence_tactic == "Block":
+            character_combat(goblin, player, enemy_attacking_tactic)
+        
+        else:
+            parry(player, goblin, player_defence_tactic)
+
+        print(f"\nYou have {player.health} health points remaining,")
+        print(f"and the {goblin.name} has {goblin.health} health points remaining.")
+
+    else:
+        break
+
+# Print the results of the fight. 
 if player.health <= 0:
     print("\nGame Over! You were defeated by the Goblin.")
 else:
-    player.weapon.xp = 11
     print("\nCongratulations! You defeated the Goblin.")
-    if player.weapon.check_xp():
-         print(f"Your sword has increased to: level {player.weapon.level}.")
+    player.weapon.check_xp()
+    
