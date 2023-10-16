@@ -93,6 +93,65 @@ class DoublyLinkedList:
             self.remove_head()
 
         return removed_tail.get_value()
+    
+    # Removes a specific node with a given value from the doubly linked list.
+    def remove_by_value(self, value_to_remove):
+        node_to_remove = None
+        current_node = self.head_node
+
+        while current_node != None:
+            if current_node.get_value() == value_to_remove:
+                node_to_remove = current_node
+                break
+
+            current_node = current_node.get_next_node()
+
+        if node_to_remove == None:
+            return None
+
+        elif node_to_remove == self.head_node:
+            self.remove_head()
+
+        elif node_to_remove == self.tail_node: 
+            self.remove_tail()
+
+        else:
+            next_node = node_to_remove.get_next_node()
+            prev_node = node_to_remove.get_prev_node()
+            next_node.set_prev_node(prev_node)
+            prev_node.set_next_node(next_node)
+
+        return node_to_remove
+    
+    def show_list(self):
+        elements = '\n'
+        current_node = self.head_node
+        while current_node:
+            if current_node.get_value() is not None: 
+                elements += str(current_node.get_value()) + '\n'
+            current_node = current_node.get_next_node()
+        return elements 
+
+
+# Create a test subway line Linked List here:
+subway = DoublyLinkedList()
+
+subway.add_to_head("Times Square")
+subway.add_to_head("Grand Central")
+subway.add_to_head("Central Park")
+
+subway.add_to_tail("Penn Station")
+subway.add_to_tail("Wall Street")
+subway.add_to_tail("Brooklyn Bridge")
+
+subway.remove_head()
+subway.remove_tail()
+
+subway.remove_by_value("Times Square")
+
+print(subway.show_list())
+
+
 
 
 
