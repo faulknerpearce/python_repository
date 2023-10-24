@@ -1,50 +1,46 @@
-# Linked List Operations
+# Singly Linked List Implementation
 
-## Overview
-This Python script provides a basic implementation of a singly linked list and includes various operations that can be performed on the linked list. A linked list is a data structure consisting of nodes where each node contains a value and a reference to the next node in the sequence. This script defines classes for nodes and linked lists and demonstrates operations like inserting, removing, swapping nodes, finding the nth last element, and determining the middle node of a linked list.
+This project provides Python implementations of singly linked lists, along with various functions and classes for common operations on linked lists.
 
 ## Features
 
-- **Node Class**: Represents a node in a singly linked list, with methods to get and set the value and reference to the next node.
+- Implementation of singly linked lists with features such as node insertion, node removal, and finding the nth last and middle nodes.
+- A function to swap the positions of two nodes in a singly linked list.
+- A function to find the nth last element in a singly linked list.
+- A function to find the middle node in a singly linked list.
+- A utility function to generate a test linked list with a specified number of elements.
 
-- **LinkedList Class**: Represents a singly linked list with methods to insert a new node at the beginning, remove a node with a specific value, and convert the linked list into a string representation.
+## Node Class
 
-- **Swap Nodes**: Swaps the positions of two nodes with specified values within the linked list.
+The `Node` class represents a node in a singly linked list. It has the following attributes and methods:
 
-- **Find Nth Last Node**: Returns the nth last element from the linked list.
+- `value`: The value stored in the node.
+- `next_node`: Reference to the next node in the list.
 
-- **Find Middle Element**: Returns the middle node from the linked list.
+### Node Methods
 
-- **Test Functions**: Includes test functions to demonstrate the functionality of the implemented classes and methods.
+- `get_value()`: Returns the value of the current node.
+- `get_next_node()`: Returns the reference to the next node.
+- `set_next_node(next_node)`: Sets the reference to the next node.
 
-## Classes and Functions
+## LinkedList Class
 
-### `Node`
-- `__init__(self, value, next_node=None)`: Initializes a node with a given value and an optional reference to the next node.
-- `get_value(self)`: Returns the value of the node.
-- `get_next_node(self)`: Returns the reference to the next node.
-- `set_next_node(self, next_node)`: Sets the reference to the next node.
+The `LinkedList` class represents a singly linked list with a head node. It includes the following features and functions:
 
-### `LinkedList`
-- `__init__(self, value=None)`: Initializes a linked list with an optional initial value.
-- `get_head_node(self)`: Returns the head node of the linked list.
-- `append_node(self, new_value)`: Inserts a new node at the beginning of the linked list.
-- `remove_node(self, value_to_remove)`: Removes a node with a specific value from the linked list.
-- `stringify_list(self)`: Converts the linked list into a string representation.
+- `head_node`: Reference to the head (first) node in the list.
 
-### Functions
-- `swap_nodes(input_list, val1, val2)`: Swaps the positions of two nodes with specified values.
-- `nth_last_node(linked_list, n)`: Returns the nth last element from the linked list.
-- `find_middle(linked_list)`: Returns the middle node from the linked list.
-- `generate_test_linked_list(n)`: Creates a linked list for testing purposes.
+### LinkedList Methods
 
-## Usage
-You can use the provided classes and functions to perform various operations on singly linked lists. The included test functions demonstrate how to use these operations. Simply import the classes and functions and adapt them to your specific use case.
+- `get_head_node()`: Returns the head node of the linked list.
+- `append_node(new_value)`: Inserts a new node at the beginning of the linked list.
+- `remove_node(value_to_remove)`: Removes a node with a specific value from the linked list.
+- `stringify_list()`: Converts the linked list into a string representation.
 
-For example:
-```python
-test_linked_list = generate_test_linked_list(10)
-print(test_linked_list.stringify_list())
+### Additional Functions
 
-middle_element = find_middle(test_linked_list)
-print(middle_element.value)
+- `swap_nodes(input_list, val1, val2)`: Swaps the positions of two nodes in the linked list.
+- `nth_last_node(linked_list, n)`: Returns the nth last element of a singly linked list.
+- `find_middle(linked_list)`: Returns the middle node from a singly linked list.
+- `generate_test_linked_list(n)`: Creates a linked list with `n` elements.
+
+These functions are valuable for performing common operations on singly linked lists and for generating test data to experiment with those operations.
