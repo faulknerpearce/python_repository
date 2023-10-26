@@ -4,10 +4,9 @@ Explore a collection of fundamental data structures implemented in various progr
 
 ## Subfolders
 
-### 1. Linked Lists
+### 1. HashMap
 
-Contains both singly and doubly linked list implementations,
-with features such as adding and removing nodes, finding nth last nodes, finding the middle element, and swapping nodes.
+Introduces a HashMap data structure with functions for assigning key-value pairs and retrieving values, considering collisions.
 
 ### 2. Stacks
 
@@ -18,6 +17,11 @@ with basic operations like push, pop, and peek, plus an optional custom limit fo
 
 Comprises a queue data structure 
 with operations like enqueue, dequeue, and peek, along with an optional custom maximum size for the queue.
+
+### 4. Linked Lists
+
+Contains both singly and doubly linked list implementations,
+with features such as adding and removing nodes, finding nth last nodes, finding the middle element, and swapping nodes.
 
 ## Usage
 
