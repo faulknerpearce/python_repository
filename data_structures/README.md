@@ -4,7 +4,7 @@ Explore a collection of fundamental data structures implemented in various progr
 
 ## Subfolders
 
-### 1. HashMap
+### 1. HashMaps
 
 Introduces a HashMap data structure with functions for assigning key-value pairs and retrieving values, considering collisions.
 

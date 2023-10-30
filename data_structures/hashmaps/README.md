@@ -11,7 +11,7 @@ This project provides a Python implementation of a HashMap data structure, which
 
 ## Functions and Classes
 
-### `HashMap`
+### `HashMaps`
 
 The `HashMap` class represents a simple key-value store using an array. It includes the following functions:
 

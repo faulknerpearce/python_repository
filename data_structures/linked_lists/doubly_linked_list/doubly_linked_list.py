@@ -60,6 +60,28 @@ class DoublyLinkedList:
         if self.head_node is None:
             self.head_node = new_tail
 
+    # Insert a new node at a given position.
+    def insert(self, pos, new_value):
+        new_node = Node(new_value)
+        if int(pos) == 0:
+            new_node.set_next_node(self.head_node)
+            self.head_node.set_prev_node(new_node)
+            self.head_node = new_node
+    
+        else:
+            current_node = self.head_node
+            for i in range(pos):
+                if current_node.get_next_node() is None:
+                    self.add_to_tail(new_value)
+                    return
+                current_node = current_node.get_next_node()
+
+            prev_node = current_node.get_prev_node()
+            new_node.set_next_node(current_node)
+            new_node.set_prev_node(prev_node)
+            prev_node.set_next_node(new_node)
+            current_node.set_prev_node(new_node)
+
     # Remove the head of the list. 
     def remove_head(self):
         removed_head = self.head_node

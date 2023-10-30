@@ -5,7 +5,7 @@ def create_player(list):
     money = 100
     list[0].insert(1, money)
 
-#this function will output the dice sum 
+#this function will output the dice sum. 
 def roll_dice():
     import random 
     diceSum = 0 

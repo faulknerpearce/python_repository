@@ -48,7 +48,6 @@ def get_user_input(my_stack_list):
             print('Invalid Input. Try Again.\n')
          
 # main program
-
 print("\nLet's play Towers of Hanoi!!")
 
 #Create the Stacks
