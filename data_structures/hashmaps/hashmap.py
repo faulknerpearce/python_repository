@@ -19,11 +19,7 @@ class HashMap:
         array_index = self.compressor(self.hash(key))
         current_array_value = self.array[array_index]
 
-        if current_array_value is None:
-            self.array[array_index] = [key, value]
-            return
-
-        if current_array_value[0] == key:
+        if current_array_value is None or current_array_value[0] == key:
             self.array[array_index] = [key, value]
             return
 
@@ -34,15 +30,11 @@ class HashMap:
             new_array_index = self.compressor(new_hash_code)
             current_array_value = self.array[new_array_index]
 
-            if current_array_value is None:
-                self.array[new_array_index] = [key, value]
-                return
+            if current_array_value is None or current_array_value[0] == key:
+                self.array[array_index] = [key, value]
+            return
 
-            if current_array_value[0] == key:
-                self.array[new_array_index] = [key, value]
-                return
-
-            number_collisions += 1
+        number_collisions += 1
 
         return
 
