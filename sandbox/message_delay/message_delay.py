@@ -1,8 +1,8 @@
 import time
 import sys
 
-player = 'Austin'
-text = f"\nHello {player} welcome to the Gladiators game."
+user = 'James'
+test_text = f"\nHello {user}, this is an output test."
 
 def delayed_print(text, delay=0.04):
     for char in text:
@@ -15,6 +15,8 @@ def delayed_print(text, delay=0.04):
 
 #delayed_print(text)
 
+
+# Will slowly print an input message to the terminal. 
 def delayed_input(text):
     for char in text:
         sys.stdout.write(char)
@@ -23,4 +25,4 @@ def delayed_input(text):
     
     return input()
 
-delayed_print(text, 0.5)
+delayed_print(test_text, 0.5)
