@@ -77,8 +77,6 @@ def check_timestamp(user_timestamp):
     else:
         return True
 
-
-# Main program script. 
 # Main program script. 
 profile_dictionaries = { 
     0: {
