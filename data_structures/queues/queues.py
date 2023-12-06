@@ -8,7 +8,8 @@ class Queue:
     self.tail = None
     self.max_size = max_size
     self.size = size
-
+  
+  # Adds a new node with the given value to the end of the queue.
   def enqueue(self, value):
     if self.has_space():
       item_to_add = Node(value)
@@ -22,7 +23,8 @@ class Queue:
       self.size += 1
     else:
       print("Sorry, no more room!")
-
+  
+  # Removes and returns the value of the node at the front of the queue.
   def dequeue(self):
     if self.get_size() > 0:
       item_to_remove = self.head
