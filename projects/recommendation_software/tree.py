@@ -44,12 +44,12 @@ class TreeNode:
   def print_node_information(self, current_node):
     # Print information about the node (price, rating, address) or list of children's names.
     if current_node.information is None:
-        delayed_print([child.name for child in current_node.children])
+        print([child.name for child in current_node.children])
     else:
         price, rating, address = current_node.information
-        delayed_print('\n-------------------------------------------------------------------\n')
+        print('\n------------------------\n')
         delayed_print(f'Name: {current_node.name}.\nPrice: {price}/5.\nRating: {rating}/5.')
-        delayed_print('\n-------------------------------------------------------------------\n')
+        print('\n------------------------\n')
 
   #Traverses the tree in breath first manner. 
   def traverse(self):
@@ -103,4 +103,4 @@ class TreeNode:
         delayed_print(f'Great choice. The address is {current_node.information[2]}')
 
     else:
-        delayed_print("We are sorry you couldn't find anything you like. ")
+        delayed_print("\nWe are sorry you couldn't find anything you like. ")
