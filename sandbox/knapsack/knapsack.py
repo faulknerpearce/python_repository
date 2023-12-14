@@ -1,9 +1,9 @@
-from itertools import permutations
+from itertools import combinations
 
 # Check if a given combination is unique in a dictionary
-def is_unique(combination, dict):
+def is_unique(new_combination, dict):
     for value in dict.values():
-        if combination == value:
+        if new_combination == value:
             return False
     return True
 
@@ -33,32 +33,30 @@ def get_best_value(items_dict):
     return items_dict[best_value_key]
 
 # Generate all possible combinations of items that are below the specified weight limit
-def below_weight_combinations(array, max_weight):
-    key = 0
+def below_weight_combinations(array, max_weight, key=0):
     bag = {}
-    combination_amount = len(array)
+    combination_length = (len(array))
     
     for i in range(len(array)):
-    
-        for permutation in permutations(array, combination_amount):
+        for combination in combinations(array, combination_length):
+             
+            if check_combination_weight(combination, max_weight):
+                new_combination = sorted(list(combination))
+         
+                if is_unique(new_combination, bag):
+                        bag.update({key: new_combination})
+                        key +=1        
         
-            if check_combination_weight(permutation, max_weight):
-                combination = sorted(list(permutation))
-
-                if len(bag) > 0:
-                    if is_unique(combination, bag):
-                        bag.update({key: combination})
-                        key +=1
-                else: 
-                    bag.update({key: combination})
-                    key +=1     
-        combination_amount -= 1
-
+        combination_length -= 1
     return bag
 
+# ________Main Program_________ #
 my_weight_cap = 5
+
 my_itmes = [[250, 1], [300, 3], [500, 5], [150, 1]]
 
 below_weight_items = below_weight_combinations(my_itmes, my_weight_cap)
 
-print(get_best_value(below_weight_items))
+best_value = get_best_value(below_weight_items)
+
+print(f'The best combination was: {best_value}')
