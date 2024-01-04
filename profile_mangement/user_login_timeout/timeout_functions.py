@@ -5,8 +5,7 @@ def username_availability(profiles_dict, username):
     for id in range(len(profiles_dict)):
         if username in profiles_dict[id]["Username"]:
             return False
-        else:
-            return True
+    return True
 
 # Function to create an account.
 def create_account(profiles_dict):
@@ -30,6 +29,7 @@ def create_account(profiles_dict):
 # This function will check for a mach from an inputed username and compare it to the existing userrnames.
 def check_username(user_profiles, username):
     for id, profile in user_profiles.items():
+        
         if profile["Username"] == username:
             print('\nAn accouint with that username has been located.')
             return True, id
@@ -38,6 +38,7 @@ def check_username(user_profiles, username):
 # This function will check if the inputed password matches the users saved password.
 def check_password(user_profiles, password, id):
     for i in range(2):
+        
         if password == user_profiles[id]["Password"]:
             password_choice = input("\nLogin successful. Press 3 to enter the applicartion: ")
             return password_choice, True
@@ -72,7 +73,5 @@ def remaining_time(lockout_timestamp):
 def check_timestamp(user_timestamp):
     current_timestamp = get_current_timestamp()
     # If the current time is greater than or equal to the lockout time, allow another login attempt.
-    if current_timestamp >= user_timestamp:
-        return False
-    else:
-        return True
+    return current_timestamp >= user_timestamp
+     
