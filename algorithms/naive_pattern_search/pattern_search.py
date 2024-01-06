@@ -13,3 +13,6 @@ def count_pattern(text, pattern):
 my_text = "HAYHAYNEEDLEHAYHAYHAYNEEDLEHAYHAYHAYHAYNEEDLE"
 my_pattern = "NEEDLE"
 
+count = count_pattern(my_text, my_pattern)
+
+print(f'The total count of pattern: {my_pattern}. was: {count}')
