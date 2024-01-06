@@ -1,16 +1,32 @@
-# Proof of Work Algorithm
+# Simple Proof of Work Demonstration
 
 ## Overview
-This script implements a simple proof of work algorithm using SHA256 hashing. It takes a list of transactions and a difficulty level as input, and returns a hash that has the required amount of leading zeros.
-Overall, this code provides a basic implementation of proof of work. However, it is important to note that this implementation is not secure and should not be used in production environments.
+
+This Python script demonstrates a simple implementation of the Proof of Work (PoW) algorithm, often used in blockchain technology. The script includes a basic transaction list and a function to find a hash with a required number of leading zeros, simulating a fundamental aspect of blockchain mining processes.
 
 ## Features
-- Implements a proof of work algorithm using SHA256 hashing
-- Takes a list of transactions and a difficulty level as input
-- Returns a hash that has the required amount of leading zeros
 
-## Functions and Classes
-### pow(transactions, difficulty)
-This function takes a list of transactions and a difficulty level as input, and returns a hash that has the required amount of leading zeros. It implements the proof of work algorithm using SHA256 hashing.
+- **Transaction Simulation**: Includes a basic structure for simulating transactions between parties.
+- **Proof of Work Algorithm**: Implements a simple Proof of Work mechanism to find a hash with a specific number of leading zeros.
+- **Customizable Difficulty**: Allows setting the difficulty level by specifying the number of leading zeros required in the hash.
 
-### Example Usage
+## Function Description
+
+`proof_of_work(transactions, difficulty)`
+
+- Finds a hash of the transactions that has the specified number of leading zeros.
+- Parameters:
+  - `transactions`: A list of transaction dictionaries.
+  - `difficulty`: The number of leading zeros required in the hash.
+- Returns a string representing the hash that satisfies the Proof of Work condition.
+
+## Setup and Usage
+
+1. **Setup:**
+   - Ensure Python is installed on your system.
+   - The script uses the `hashlib` library, which should be included in standard Python installations.
+
+2. **Running the Script:**
+   - Define a list of transactions. Each transaction is a dictionary with `amount`, `sender`, and `receiver` keys.
+   - Call the `proof_of_work` function with the list of transactions and the desired difficulty level.
+   - Run the script to obtain the hash that satisfies the specified Proof of Work condition.
