@@ -12,7 +12,9 @@ def proof_of_work(transactions, difficulty):
         proof = sha256((str(nonce)+str(transactions)).encode()).hexdigest()
     return proof 
 
-final_proof = proof_of_work(new_transactions, 3)
+#________Main Program_________ # 
+if __name__ == "__main__":
 
-# Output the result that was found. 
-print(f"final proof: {final_proof}")
+    final_proof = proof_of_work(new_transactions, 3)
+    
+    print(f"final proof: {final_proof}")
