@@ -5,8 +5,7 @@ profile_dictionaries = {
     0: {
         "Username": "firefly",
         "Password": "1234",
-        "Name": "James Bancroft", 
-        "Points": 100, 
+        "Name": "James Bancroft",  
         "Timeout": 0
         } 
      }
@@ -18,6 +17,7 @@ while choice == '1' or choice == '2':
     # User can create an account. 
     if choice == '1':
         choice = create_account(profile_dictionaries)
+    
     # User can log in. 
     elif choice == '2':
         user_in = input("\nWelcome back. Please enter your username: ")
@@ -37,11 +37,9 @@ while choice == '1' or choice == '2':
                     
                     password = input("\nPlease enter your password: ")
                     choice, password_found = check_password(profile_dictionaries, password, id)
-        
         else: 
             choice = input("\nNo account found, press 1 to create an account, press 2 to try again, press 5 to exit: ")
-
-
+    
 if choice == '3' and password_found == True:
     person = profile_dictionaries[id]["Name"]
     print(f'\nWelcome back {person}.')

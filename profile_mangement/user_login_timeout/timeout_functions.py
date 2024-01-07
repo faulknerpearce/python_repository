@@ -5,6 +5,7 @@ def username_availability(profiles_dict, username):
     for id in range(len(profiles_dict)):
         if username in profiles_dict[id]["Username"]:
             return False
+    
     return True
 
 # Function to create an account.
@@ -13,17 +14,18 @@ def create_account(profiles_dict):
 
     while create_choice == '4':
         user_username = input("\n1. Create a username: ")
-        # Check for a unique username.
+      
         if username_availability(profiles_dict, user_username):
             id = len(profiles_dict)
             password = input("\nUsername successfully created.\n2. Create a password: ")
             name = input("\nPassword successfully created.\n3. Enter your full name: ")
-            # Update the profiles dictionary with the new user information.
+            
             profiles_dict.update(
                 {id: {"Username": user_username, "Password": password, "Name": name, "Timeout": 0}})
             create_choice = input("\nAccount created, Press 2 to log in: ")
         else:
             create_choice = input("\nThat username is taken. press 4 to try another, Press 5 to exit ")
+    
     return create_choice
 
 # This function will check for a mach from an inputed username and compare it to the existing userrnames.
