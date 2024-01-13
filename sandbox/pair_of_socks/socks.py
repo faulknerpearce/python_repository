@@ -24,7 +24,7 @@ def find_pair(socks):
             collected_socks.update({sock: 1})
 
 # Simulates finding pairs multiple times and records the number of turns.
-def generate_tires_arr(socks, amount_of_tries):
+def generate_tires(socks, amount_of_tries):
     result = []
 
     for _ in range(amount_of_tries):
@@ -44,7 +44,7 @@ def calculate_average(arr):
 # ________Main Program_________ #
 my_socks = create_socks(2)
 
-my_tires = generate_tires_arr(my_socks, 1000)
+my_tires = generate_tires(my_socks, 1000)
 
 the_average = calculate_average(my_tires)
 
