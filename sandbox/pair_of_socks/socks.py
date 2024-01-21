@@ -3,9 +3,11 @@ import random
 # Creates a list of socks with specified colors.
 def create_socks(pairs):
     socks = []
+   
     for colour in range(pairs):
         for _ in range(10):
             socks.append(colour)
+    
     return socks
 
 # Simulates finding a pair of socks in a shuffled list.
@@ -22,6 +24,8 @@ def find_pair(socks):
                 return turns
         else:
             collected_socks.update({sock: 1})
+    
+    return turns
 
 # Simulates finding pairs multiple times and records the number of turns.
 def generate_tires(socks, amount_of_tries):
@@ -42,10 +46,12 @@ def calculate_average(arr):
     return round(average)
 
 # ________Main Program_________ #
-my_socks = create_socks(2)
+if __name__ == '__main__':
 
-my_tires = generate_tires(my_socks, 1000)
+    my_socks = create_socks(2)
 
-the_average = calculate_average(my_tires)
+    my_tires = generate_tires(my_socks, 1000)
 
-print(f'The average number of atempts needed to get a pair of socks is: {the_average}')
+    the_average = calculate_average(my_tires)
+
+    print(f'The average number of atempts needed to get a pair of socks is: {the_average}')
