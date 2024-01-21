@@ -10,21 +10,21 @@ Restaurant Explorer is a Python script that simulates an interactive application
 
 ## Functions
 
-### `delayed_print(text, delay)`
+`delayed_print(text, delay)`
 
 - Prints text with a delayed effect for improved user interaction.
 
-### `delayed_input(text)`
+`delayed_input(text)`
 
-- Prints text with a delayed effect for improved user interaction and takes user input.
+-Prints text with a delayed effect for improved user interaction and takes user input.
 
-### `create_tree_with_categories(categories)`
+`create_tree_with_categories(categories)`
 
 - Creates a tree with a root node and adds categories as child nodes.
 
 - Provides user input with a delayed printing effect for a more enjoyable experience.
 
-### `add_restaurants_to_categories(restaurants_tree, restaurant_selection)`
+`add_restaurants_to_categories(restaurants_tree, restaurant_selection)`
 
 - Adds restaurant nodes to the existing tree under their respective categories.
 
