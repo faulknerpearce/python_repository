@@ -12,11 +12,9 @@ def check_combination_weight(items, max_weight):
     total_weight = 0
     for item in items:
         total_weight += item[1]
-    if total_weight <= max_weight:
-        return True
-    else:
-        return False 
-
+    
+    return total_weight <= max_weight
+     
 # Identify the combination with the highest value from a dictionary of item combinations
 def get_best_value(items_dict):
     best_value_key = 0
@@ -37,7 +35,7 @@ def below_weight_combinations(array, max_weight, key=0):
     bag = {}
     combination_length = (len(array))
     
-    for i in range(len(array)):
+    for _ in range(len(array)):
         for combination in combinations(array, combination_length):
              
             if check_combination_weight(combination, max_weight):
