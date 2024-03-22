@@ -3,22 +3,22 @@
 def replace_pattern(text, pattern, replacement, case_sensitive=True):
     fixed_text = ''
     n = len(pattern)
-    last_index = 0
+    idx = 0
 
     formatted_pattern = pattern if case_sensitive else pattern.lower()
     
-    for index in range(0, len(text) - (n-1)):
+    for i in range(0, len(text) - (n-1)):
     
-        current_string = text[index:index+n]
+        current_string = text[i:i+n]
 
         formatted_string = current_string if case_sensitive else current_string.lower()
          
         if formatted_string == formatted_pattern:
-                fixed_text += (text[last_index:index])
+                fixed_text += (text[idx:i])
                 fixed_text += replacement 
-                last_index = (index + n)
+                idx = (i + n)
         
-    fixed_text += text[last_index:]
+    fixed_text += text[idx:]
             
     return fixed_text     
 
