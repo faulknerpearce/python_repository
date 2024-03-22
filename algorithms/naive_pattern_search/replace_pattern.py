@@ -1,26 +1,22 @@
 
 # This will replace occurrences of a specified pattern in the string with a given substitute. Optionally case-sensitive; default is case-sensitive.
 def replace_pattern(text, pattern, replacement, case_sensitive=True):
-    fixed_text = ''
-    n = len(pattern)
+    formatted = ''
+    end = len(pattern) -1
     idx = 0
-
-    formatted_pattern = pattern if case_sensitive else pattern.lower()
     
-    for i in range(0, len(text) - (n-1)):
-    
-        current_string = text[i:i+n]
-
-        formatted_string = current_string if case_sensitive else current_string.lower()
-         
-        if formatted_string == formatted_pattern:
-                fixed_text += (text[idx:i])
-                fixed_text += replacement 
-                idx = (i + n)
+    for i in range(0, len(text) - end):
         
-    fixed_text += text[idx:]
-            
-    return fixed_text     
+        cur_pattern = text[i:i+len(pattern)] if case_sensitive else text[i:i+len(pattern)].lower()
+        
+        if cur_pattern == pattern:
+            formatted += text[idx:i] + replacement
+            idx = i + len(pattern)
+
+    if i < len(text) - end:
+        formatted += text[idx:]
+
+    return formatted     
 
 friends_intro = "Pylhon is a wonderful Language that zzz is beloved for its ease zzz of use and simple syntacs. While zzz at some times the performance can be less than iDil, by properly zzz utilizing built-in libraries and other languuUuage features, pylhon's performance zzz can approach that of C."
 
