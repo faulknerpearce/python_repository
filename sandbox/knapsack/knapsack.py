@@ -1,8 +1,6 @@
 from itertools import combinations
 
 # Checks if the total weight of items in a combination does not exceed the max weight.
-
-
 def below_weight(arrays, max_weight):
     total_weight = 0
 
@@ -12,24 +10,20 @@ def below_weight(arrays, max_weight):
     return total_weight <= max_weight
 
 # Returns a dictionary of below weight combinations.
-
-
-def get_below_weight_combinations(arrays, maximum_weight):
-    items_map = {}
+def get_below_weight_combinations(items):
+    valid_combinations = {}
     key = 0
 
-    for i in range(1, len(arrays) + 1):
-        for combination in combinations(arrays, i):
+    for i in range(1, len(items) +1):
 
-            if below_weight(combination, maximum_weight):
-                items_map.update({key: list(combination)})
-                key += 1
+        for combination in combinations(items, i):
 
-    return items_map
+            if below_weight(combination, 5):
+                valid_combinations.update({key: combination})
+
+    return valid_combinations
 
 # Returns the combination that is below weight and has the greatest
-
-
 def get_highest_value_combination(items_map):
     best_value_key = 0
     best_value = 0
