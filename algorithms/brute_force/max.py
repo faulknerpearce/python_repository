@@ -1,5 +1,3 @@
-#Linear Search Algorithm
-
 # This will traverse an array and retun the max value.
 def linear_search(search_list):
   max_val = None
@@ -10,8 +8,11 @@ def linear_search(search_list):
     
   return max_val
 
-test_scores = [88, 93, 75, 100, 80, 67, 71, 92, 90, 83]
+#________Main Program_________ # 
+if __name__ == "__main__":
 
-highest_score = linear_search(test_scores)
+  test_scores = [88, 93, 75, 100, 80, 67, 71, 92, 90, 83]
 
-print(highest_score)
+  highest_score = linear_search(test_scores)
+
+  print(highest_score)
