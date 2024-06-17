@@ -10,7 +10,7 @@ def below_weight(arrays, max_weight):
     return total_weight <= max_weight
 
 # Returns a dictionary of below weight combinations.
-def get_below_weight_combinations(items):
+def get_below_weight_combinations(items, max_weight):
     valid_combinations = {}
     key = 0
 
@@ -18,14 +18,15 @@ def get_below_weight_combinations(items):
 
         for combination in combinations(items, i):
 
-            if below_weight(combination, 5):
+            if below_weight(combination, max_weight):
                 valid_combinations.update({key: combination})
+                key += 1
 
     return valid_combinations
 
 # Returns the combination that is below weight and has the greatest
 def get_highest_value_combination(items_map):
-    best_value_key = 0
+    best_combination = 0
     best_value = 0
 
     for key in items_map.keys():
@@ -35,17 +36,17 @@ def get_highest_value_combination(items_map):
             current_value += item[0]
 
         if current_value > best_value:
-            best_value_key = items_map[key]
+            best_combination = items_map[key]
 
             best_value = current_value
 
-    return best_value_key
+    return best_combination
 
 
 if __name__ == '__main__':
 
-    my_items = [[250, 1], [300, 3], [500, 5], [150, 2]]
+    my_items = [[250, 1], [300, 3], [500, 5], [150, 1]]
 
-    my_combinations = get_below_weight_combinations(my_items, 4)
+    my_combinations = get_below_weight_combinations(my_items, 5)
 
     print(get_highest_value_combination(my_combinations))
