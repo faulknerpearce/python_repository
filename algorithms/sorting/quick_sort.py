@@ -28,10 +28,12 @@ def quicksort(list, start, end):
     quicksort(list, start, less_than_pointer - 1)
     quicksort(list, less_than_pointer + 1, end)
 
-# ________Main Program_________ # 
-unsorted_list = [3,7,12,24,36,42]
-shuffle(unsorted_list)
-print(unsorted_list)
+#________Main Program_________ # 
+if __name__ == "__main__":
 
-quicksort(unsorted_list, 0, len(unsorted_list) - 1)
-print(unsorted_list)
+    unsorted_list = [3,7,12,24,36,42]
+    shuffle(unsorted_list)
+    print(unsorted_list)
+
+    quicksort(unsorted_list, 0, len(unsorted_list) - 1)
+    print(unsorted_list)

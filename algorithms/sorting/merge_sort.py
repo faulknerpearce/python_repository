@@ -40,9 +40,11 @@ def merge(left, right):
 
     return result
 
-# ________Main Program_________ # 
-unordered_list = [787, 677, 391, 318, 543, 717, 180, 113, 795, 19, 202, 534, 201, 370, 276, 975, 403, 624, 770, 595, 571, 268, 373]
+#________Main Program_________ # 
+if __name__ == "__main__":
+    
+    unordered_list = [787, 677, 391, 318, 543, 717, 180, 113, 795, 19, 202, 534, 201, 370, 276, 975, 403, 624, 770, 595, 571, 268, 373]
 
-ordered_list = merge_sort(unordered_list)
+    ordered_list = merge_sort(unordered_list)
 
-print(ordered_list)
+    print(ordered_list)

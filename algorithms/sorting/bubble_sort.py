@@ -8,9 +8,11 @@ def bubble_sort(arr):
                 arr[index], arr[index + 1] = arr[index + 1], arr[index]
     return arr 
 
-# ________Main Program_________ # 
-nums = [5, 2, 9, 1, 5, 6]
+#________Main Program_________ # 
+if __name__ == "__main__":
 
-sorted_array = bubble_sort(nums)
+    nums = [5, 2, 9, 1, 5, 6]
 
-print(sorted_array)
+    sorted_array = bubble_sort(nums)
+
+    print(sorted_array)
