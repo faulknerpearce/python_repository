@@ -69,7 +69,6 @@ def multiplication(num_a, num_b):
 
   return num_a + multiplication(num_a, num_b - 1)
 
-
 # Recursive multiplication of two numbers.]
 def move_to_end(lst, val):
   result = []
@@ -85,7 +84,6 @@ def move_to_end(lst, val):
 
   return result
 
-
 # Wraps a string with specified characters n times.
 def wrap_string(str, n):
   result = ""
@@ -96,7 +94,6 @@ def wrap_string(str, n):
   result += ">"
 
   return result
-
 
 # Reverses the elements of a list using recursion.
 def reverse_list(the_list):
