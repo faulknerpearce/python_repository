@@ -1,26 +1,53 @@
-# HashMap Python Implementation
+# HashMap Implementation
 
-This project provides a Python implementation of a HashMap data structure, which allows efficient key-value pair storage and retrieval.
+A Python implementation of a hash map data structure that demonstrates fundamental concepts of hash tables including hashing, compression, and collision resolution.
+
+## Project Overview
+
+This project provides a custom HashMap class that efficiently maps keys to values using hashing techniques. The implementation includes:
+
+- A hash function that converts string keys into numeric hash codes
+- A compression function to map hash codes to valid array indices
+- Collision resolution using open addressing with linear probing
 
 ## Features
 
-- Implementation of a HashMap with features like assigning and retrieving key-value pairs.
-- Collision handling using open addressing (linear probing) to ensure data integrity.
-- Customizable array size to control the number of possible hash collisions.
-- Efficient key hashing and compression functions.
+- **Custom Hashing**: Converts string keys to numeric values by summing ASCII values
+- **Hash Code Compression**: Ensures hash codes fit within the array bounds
+- **Collision Handling**: Implements linear probing to resolve hash collisions
+- **Key-Value Storage**: Supports assignment and retrieval operations
 
-## Functions and Classes
+## Implementation Details
 
-### `HashMaps`
+### Hashing Function
+The hashing function converts a string key into a numeric value by:
+1. Encoding the string to bytes
+2. Summing the ASCII values of each byte
+3. Adding an optional collision count for conflict resolution
 
-The `HashMap` class represents a simple key-value store using an array. It includes the following functions:
+### Compression Function
+The compression function ensures that hash codes map to valid indices within the array using the modulo operation:
+```python
+hash_code % array_size
+```
 
-- `__init__(self, array_size)`: Constructor for initializing the HashMap with a specified array size.
-- `hash(self, key, count_collisions=0)`: Hashes a key and returns a hash code, optionally considering collision count.
-- `compressor(self, hash_code)`: Compresses a hash code to fit within the array size.
-- `assign(self, key, value)`: Assigns a key-value pair to the HashMap, handling collisions.
-- `retrieve(self, key)`: Retrieves the value associated with a specific key from the HashMap, considering collisions.
+### Collision Resolution
+When two different keys hash to the same array index (collision), the implementation:
+1. Increments a collision counter
+2. Rehashes the key with the collision count
+3. Compresses the new hash code to find an alternative array position
+4. Continues this process until an empty slot or the same key is found
 
-The `HashMap` class provides a basic yet functional key-value storage solution with collision handling. It uses open addressing to manage collisions, ensuring reliable data storage and retrieval.
+## Performance Characteristics
 
-Feel free to use this implementation as a foundation for more complex data structures or as a learning tool for understanding the inner workings of HashMaps.
+- **Time Complexity**: 
+  - Average case: O(1) for both assign and retrieve operations
+  - Worst case: O(n) when many collisions occur
+- **Space Complexity**: O(n) where n is the array size
+
+## Limitations and Future Improvements
+
+- No dynamic resizing when the load factor increases
+- No deletion functionality
+- Linear probing may lead to clustering
+- Could be improved with alternative collision resolution strategies
