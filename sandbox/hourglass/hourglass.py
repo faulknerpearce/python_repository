@@ -5,9 +5,9 @@ def get_hourglass_sums(array):
 
         for col in range(len(array) - 3 + 1):
         
-            hourglass = array[row][col:col+3] # Top pattern. 
-            hourglass.insert(-1, array[row+1][col+1]) # Middle pattern.
-            hourglass += array[row+2][col:col+3] # Bottom Pattern. 
+            hourglass = array[row][col:col+3]
+            hourglass.insert(-1, array[row+1][col+1])
+            hourglass += array[row+2][col:col+3]
             
             sums.append((sum(map(int, hourglass))))
 
@@ -34,5 +34,5 @@ if __name__ == '__main__':
     # Compute the sums of all hourglass patterns in the 2D array
     hourglass_sums = get_hourglass_sums(numbers)
 
-    # Find and print the maximum hourglass sum
+    # Find and print the maximum hourglass sum.
     print(max_hourglass(hourglass_sums))
