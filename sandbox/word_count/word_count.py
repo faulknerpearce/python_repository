@@ -15,7 +15,8 @@ def split_sentence(sentence):
    my_words = cleaned.split(" ")
    return my_words
 
-def main ():
+if __name__ == '__main__':
+
     words_count = {}
 
     my_sentence = input("Please enter a sentence ")
@@ -26,4 +27,3 @@ def main ():
         words_count = update_words(word.title(), words_count)
 
     print(words_count)
-main()
