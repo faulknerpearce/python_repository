@@ -23,4 +23,3 @@ def ask(guess):
 def below_or_above(guess):
     output = int(input("If your number was below " + str(guess) + " Press(1). If Your number was above " + str(guess) + " Press(2): "))
     return output
-
